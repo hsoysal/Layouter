@@ -74,8 +74,8 @@ topleft.top(offset: 0)
     .equalWidths(with: topright)
     .equalHeights(with: topright)
     .alignTops(with: topright)
-    .alignHorizontally(with: topright)
-    .alignVertically(with: bottomleft)
+    .arrangeHorizontally(with: topright)
+    .arrangeVertically(with: bottomleft)
     .equalHeights(with: bottomleft)
     
 bottomleft.left(offset: 0)
@@ -83,7 +83,7 @@ bottomleft.left(offset: 0)
     .equalWidths(with: bottomright)
     .equalHeights(with: bottomright)
     .alignBottoms(with: bottomright)
-    .alignHorizontally(with: bottomright)
+    .arrangeHorizontally(with: bottomright)
     
 topright.right(offset: 0)
 bottomright.right(offset: 0)
@@ -248,7 +248,7 @@ func alignRights(with views: UIView..., constant: CGFloat = 0, option: SizeOptio
 ///   The default is `equal(1000)`.
 /// - Returns: `self`
 @discardableResult
-func alignHorizontally(with views: UIView..., constant: CGFloat = 0, option: SizeOption = .equal(1000)) -> UIView 
+func arrangeHorizontally(with views: UIView..., constant: CGFloat = 0, option: SizeOption = .equal(1000)) -> UIView 
 ```
 
 ```swift
@@ -265,7 +265,7 @@ func alignHorizontally(with views: UIView..., constant: CGFloat = 0, option: Siz
 ///   The default is `equal(1000)`.
 /// - Returns: `self`
 @discardableResult
-func alignVertically(with views: UIView..., constant: CGFloat = 0, option: SizeOption = .equal(1000)) -> UIView
+func arrangeVertically(with views: UIView..., constant: CGFloat = 0, option: SizeOption = .equal(1000)) -> UIView
 ```
 
 
@@ -469,4 +469,39 @@ func centerHorizontally(offset constant: CGFloat = 0, option: SizeOption = .equa
 /// - Returns: `self`
 @discardableResult
 func centerVertically(offset constant: CGFloat = 0, option: SizeOption = .equal(1000), location: Where = .superview) -> UIView  
+```
+
+```
+```swift
+/// Returns self
+///
+/// Produces an active constraint of the form:
+///
+///     self.centerX + constant = others.centerX
+///
+/// - Parameters:
+///   - views: other views who will be in the horizontal sequence starting with this view
+///   - constant: offset constant for the constraint.
+///   - option: size option for the constraint. It can be `equal`, `equalOrGrater`, or `equalOrless`.
+///   The default is `equal(1000)`.
+/// - Returns: `self`
+@discardableResult
+func centerHorizontally(with views: UIView..., constant: CGFloat = 0, option: SizeOption = .equal(1000)) -> UIView 
+```
+
+```swift
+/// Returns self
+///
+/// Produces an active constraint of the form:
+///
+///     self.centerY + constant= others.centerY
+///
+/// - Parameters:
+///   - views: other views who will be in the vertical sequence starting with this view
+///   - constant: offset constant for the constraint.
+///   - option: size option for the constraint. It can be `equal`, `equalOrGrater`, or `equalOrless`.
+///   The default is `equal(1000)`.
+/// - Returns: `self`
+@discardableResult
+func centerVertically(with views: UIView..., constant: CGFloat = 0, option: SizeOption = .equal(1000)) -> UIView 
 ```
