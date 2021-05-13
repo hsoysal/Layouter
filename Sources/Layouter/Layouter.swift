@@ -339,6 +339,10 @@ public extension UIView {
         })
         return self
     }
+}
+
+//MARK: - Arrangement
+public extension UIView {
     
     /// Returns self
     ///
@@ -353,7 +357,7 @@ public extension UIView {
     ///   The default is `equal(1000)`.
     /// - Returns: `self`
     @discardableResult
-    func alignHorizontally(with views: UIView..., constant: CGFloat = 0, option: SizeOption = .equal(1000)) -> UIView {
+    func arrangeHorizontally(with views: UIView..., constant: CGFloat = 0, option: SizeOption = .equal(1000)) -> UIView {
         var current: UIView = self
         views.forEach({
             switch option {
@@ -388,7 +392,7 @@ public extension UIView {
     ///   The default is `equal(1000)`.
     /// - Returns: `self`
     @discardableResult
-    func alignVertically(with views: UIView..., constant: CGFloat = 0, option: SizeOption = .equal(1000)) -> UIView {
+    func arrangeVertically(with views: UIView..., constant: CGFloat = 0, option: SizeOption = .equal(1000)) -> UIView {
         var current: UIView = self
         views.forEach({
             switch option {
@@ -650,6 +654,72 @@ public extension UIView {
 
 // MARK: - Center
 public extension UIView {
+    
+    /// Returns self
+    ///
+    /// Produces an active constraint of the form:
+    ///
+    ///     self.centerX + constant = others.centerX
+    ///
+    /// - Parameters:
+    ///   - views: other views who will be in the horizontal sequence starting with this view
+    ///   - constant: offset constant for the constraint.
+    ///   - option: size option for the constraint. It can be `equal`, `equalOrGrater`, or `equalOrless`.
+    ///   The default is `equal(1000)`.
+    /// - Returns: `self`
+    @discardableResult
+    func centerHorizontally(with views: UIView..., constant: CGFloat = 0, option: SizeOption = .equal(1000)) -> UIView {
+        views.forEach({
+            switch option {
+            case .equal(let priority):
+                let constraint: NSLayoutConstraint = $0.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: constant)
+                constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.activate()
+            case .equalOrGrater(let priority):
+                let constraint: NSLayoutConstraint = $0.centerXAnchor.constraint(greaterThanOrEqualTo: self.centerXAnchor, constant: constant)
+                constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.activate()
+            case .equalOrless(let priority):
+                let constraint: NSLayoutConstraint = $0.centerXAnchor.constraint(lessThanOrEqualTo: self.centerXAnchor, constant: constant)
+                constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.activate()
+            }
+        })
+        return self
+    }
+    
+    /// Returns self
+    ///
+    /// Produces an active constraint of the form:
+    ///
+    ///     self.centerY + constant= others.centerY
+    ///
+    /// - Parameters:
+    ///   - views: other views who will be in the vertical sequence starting with this view
+    ///   - constant: offset constant for the constraint.
+    ///   - option: size option for the constraint. It can be `equal`, `equalOrGrater`, or `equalOrless`.
+    ///   The default is `equal(1000)`.
+    /// - Returns: `self`
+    @discardableResult
+    func centerVertically(with views: UIView..., constant: CGFloat = 0, option: SizeOption = .equal(1000)) -> UIView {
+        views.forEach({
+            switch option {
+            case .equal(let priority):
+                let constraint: NSLayoutConstraint = $0.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: constant)
+                constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.activate()
+            case .equalOrGrater(let priority):
+                let constraint: NSLayoutConstraint = $0.centerYAnchor.constraint(greaterThanOrEqualTo: self.centerYAnchor, constant: constant)
+                constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.activate()
+            case .equalOrless(let priority):
+                let constraint: NSLayoutConstraint = $0.centerYAnchor.constraint(lessThanOrEqualTo: self.centerYAnchor, constant: constant)
+                constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.activate()
+            }
+        })
+        return self
+    }
     
     /// Returns self
     ///
