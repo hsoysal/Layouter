@@ -82,14 +82,17 @@ public extension UIView {
         case .equal(let priority):
             let constraint: NSLayoutConstraint = self.topAnchor.constraint(equalTo: anchor, constant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "TopAnchorToSuperview"
             constraint.activate()
         case .equalOrGrater(let priority):
             let constraint: NSLayoutConstraint = self.topAnchor.constraint(greaterThanOrEqualTo: anchor, constant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "TopAnchorToSuperviewGrater"
             constraint.activate()
         case .equalOrless(let priority):
             let constraint: NSLayoutConstraint = self.topAnchor.constraint(lessThanOrEqualTo: anchor, constant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "TopAnchorToSuperviewLess"
             constraint.activate()
         }
         return self
@@ -114,14 +117,17 @@ public extension UIView {
         case .equal(let priority):
             let constraint: NSLayoutConstraint = self.leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "LeadingAnchorToSuperview"
             constraint.activate()
         case .equalOrGrater(let priority):
             let constraint: NSLayoutConstraint = self.leadingAnchor.constraint(greaterThanOrEqualTo: superview.leadingAnchor, constant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "LeadingAnchorToSuperviewGrater"
             constraint.activate()
         case .equalOrless(let priority):
             let constraint: NSLayoutConstraint = self.leadingAnchor.constraint(lessThanOrEqualTo: superview.leadingAnchor, constant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "LeadingAnchorToSuperviewLess"
             constraint.activate()
         }
         return self
@@ -146,14 +152,17 @@ public extension UIView {
         case .equal(let priority):
             let constraint: NSLayoutConstraint = superview.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "TrailingAnchorToSuperview"
             constraint.activate()
         case .equalOrGrater(let priority):
             let constraint: NSLayoutConstraint = superview.trailingAnchor.constraint(greaterThanOrEqualTo: self.trailingAnchor, constant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "TrailingAnchorToSuperviewGrater"
             constraint.activate()
         case .equalOrless(let priority):
             let constraint: NSLayoutConstraint = superview.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "TrailingAnchorToSuperviewLess"
             constraint.activate()
         }
         return self
@@ -191,14 +200,17 @@ public extension UIView {
         case .equal(let priority):
             let constraint: NSLayoutConstraint = anchor.constraint(equalTo: self.bottomAnchor, constant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "BottomAnchorToSuperview"
             constraint.activate()
         case .equalOrGrater(let priority):
             let constraint: NSLayoutConstraint = anchor.constraint(greaterThanOrEqualTo: self.bottomAnchor, constant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "BottomAnchorToSuperviewGrater"
             constraint.activate()
         case .equalOrless(let priority):
             let constraint: NSLayoutConstraint = anchor.constraint(lessThanOrEqualTo: self.bottomAnchor, constant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "BottomAnchorToSuperviewLess"
             constraint.activate()
         }
         return self
@@ -227,14 +239,17 @@ public extension UIView {
             case .equal(let priority):
                 let constraint: NSLayoutConstraint = $0.topAnchor.constraint(equalTo: self.topAnchor, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "TopAnchorToOtherView"
                 constraint.activate()
             case .equalOrGrater(let priority):
                 let constraint: NSLayoutConstraint = $0.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "TopAnchorToOtherViewGrater"
                 constraint.activate()
             case .equalOrless(let priority):
                 let constraint: NSLayoutConstraint = $0.topAnchor.constraint(lessThanOrEqualTo: self.topAnchor, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "TopAnchorToOtherViewLess"
                 constraint.activate()
             }
         })
@@ -260,14 +275,17 @@ public extension UIView {
             case .equal(let priority):
                 let constraint: NSLayoutConstraint = $0.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "BottomAnchorToOtherView"
                 constraint.activate()
             case .equalOrGrater(let priority):
                 let constraint: NSLayoutConstraint = $0.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor, constant: -constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "BottomAnchorToOtherViewGrater"
                 constraint.activate()
             case .equalOrless(let priority):
                 let constraint: NSLayoutConstraint = $0.bottomAnchor.constraint(greaterThanOrEqualTo: self.bottomAnchor, constant: -constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "BottomAnchorToOtherViewLess"
                 constraint.activate()
             }
         })
@@ -293,14 +311,17 @@ public extension UIView {
             case .equal(let priority):
                 let constraint: NSLayoutConstraint = $0.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "LeadingAnchorToOtherView"
                 constraint.activate()
             case .equalOrGrater(let priority):
                 let constraint: NSLayoutConstraint = $0.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "LeadingAnchorToOtherViewGrater"
                 constraint.activate()
             case .equalOrless(let priority):
                 let constraint: NSLayoutConstraint = $0.leadingAnchor.constraint(lessThanOrEqualTo: self.leadingAnchor, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "LeadingAnchorToOtherViewLess"
                 constraint.activate()
             }
         })
@@ -326,14 +347,17 @@ public extension UIView {
             case .equal(let priority):
                 let constraint: NSLayoutConstraint = $0.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "TrailingAnchorToOtherView"
                 constraint.activate()
             case .equalOrGrater(let priority):
                 let constraint: NSLayoutConstraint = $0.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "TrailingAnchorToOtherViewGrater"
                 constraint.activate()
             case .equalOrless(let priority):
                 let constraint: NSLayoutConstraint = $0.trailingAnchor.constraint(greaterThanOrEqualTo: self.trailingAnchor, constant: -constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "TrailingAnchorToOtherViewLess"
                 constraint.activate()
             }
         })
@@ -364,14 +388,17 @@ public extension UIView {
             case .equal(let priority):
                 let constraint: NSLayoutConstraint = $0.leadingAnchor.constraint(equalTo: current.trailingAnchor, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "HorizontalArrangedToOtherView"
                 constraint.activate()
             case .equalOrGrater(let priority):
                 let constraint: NSLayoutConstraint = $0.leadingAnchor.constraint(greaterThanOrEqualTo: current.trailingAnchor, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "HorizontalArrangedToOtherViewGrater"
                 constraint.activate()
             case .equalOrless(let priority):
                 let constraint: NSLayoutConstraint = $0.leadingAnchor.constraint(lessThanOrEqualTo: current.trailingAnchor, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "HorizontalArrangedToOtherViewLess"
                 constraint.activate()
             }
             current = $0
@@ -399,14 +426,17 @@ public extension UIView {
             case .equal(let priority):
                 let constraint: NSLayoutConstraint = $0.topAnchor.constraint(equalTo: current.bottomAnchor, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "VerticalArrangedToOtherView"
                 constraint.activate()
             case .equalOrGrater(let priority):
                 let constraint: NSLayoutConstraint = $0.topAnchor.constraint(greaterThanOrEqualTo: current.bottomAnchor, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "VerticalArrangedToOtherViewGrater"
                 constraint.activate()
             case .equalOrless(let priority):
                 let constraint: NSLayoutConstraint = $0.topAnchor.constraint(lessThanOrEqualTo: current.bottomAnchor, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "VerticalArrangedToOtherViewLess"
                 constraint.activate()
             }
             current = $0
@@ -435,14 +465,17 @@ public extension UIView {
         case .equal(let priority):
             let constraint: NSLayoutConstraint = self.widthAnchor.constraint(equalToConstant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "WidthAnchorWithConstant"
             constraint.activate()
         case .equalOrGrater(let priority):
             let constraint: NSLayoutConstraint = self.widthAnchor.constraint(greaterThanOrEqualToConstant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "WidthAnchorWithConstantGrater"
             constraint.activate()
         case .equalOrless(let priority):
             let constraint: NSLayoutConstraint = self.widthAnchor.constraint(lessThanOrEqualToConstant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "WidthAnchorWithConstantLess"
             constraint.activate()
         }
         return self
@@ -465,14 +498,17 @@ public extension UIView {
         case .equal(let priority):
             let constraint: NSLayoutConstraint = self.heightAnchor.constraint(equalToConstant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "HeightAnchorWithConstant"
             constraint.activate()
         case .equalOrGrater(let priority):
             let constraint: NSLayoutConstraint = self.heightAnchor.constraint(greaterThanOrEqualToConstant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "HeightAnchorWithConstantGrater"
             constraint.activate()
         case .equalOrless(let priority):
             let constraint: NSLayoutConstraint = self.heightAnchor.constraint(lessThanOrEqualToConstant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "HeightAnchorWithConstantLess"
             constraint.activate()
         }
         return self
@@ -521,14 +557,17 @@ public extension UIView {
             case .equal(let priority):
                 let constraint: NSLayoutConstraint = $0.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: multiplier, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "EqualWidthAnchorToOtherView"
                 constraint.activate()
             case .equalOrGrater(let priority):
                 let constraint: NSLayoutConstraint = $0.widthAnchor.constraint(greaterThanOrEqualTo: self.widthAnchor, multiplier: multiplier, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "EqualWidthAnchorToOtherViewGrater"
                 constraint.activate()
             case .equalOrless(let priority):
                 let constraint: NSLayoutConstraint = $0.widthAnchor.constraint(lessThanOrEqualTo: self.widthAnchor, multiplier: multiplier, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "EqualWidthAnchorToOtherViewLess"
                 constraint.activate()
             }
         })
@@ -555,14 +594,17 @@ public extension UIView {
             case .equal(let priority):
                 let constraint: NSLayoutConstraint = $0.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: multiplier, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "EqualHeightAnchorToOtherView"
                 constraint.activate()
             case .equalOrGrater(let priority):
                 let constraint: NSLayoutConstraint = $0.heightAnchor.constraint(greaterThanOrEqualTo: self.heightAnchor, multiplier: multiplier, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "EqualHeightAnchorToOtherViewGrater"
                 constraint.activate()
             case .equalOrless(let priority):
                 let constraint: NSLayoutConstraint = $0.heightAnchor.constraint(lessThanOrEqualTo: self.heightAnchor, multiplier: multiplier, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "EqualHeightAnchorToOtherViewLess"
                 constraint.activate()
             }
         })
@@ -674,14 +716,17 @@ public extension UIView {
             case .equal(let priority):
                 let constraint: NSLayoutConstraint = $0.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "CenterHorizontalAnchorToOtherView"
                 constraint.activate()
             case .equalOrGrater(let priority):
                 let constraint: NSLayoutConstraint = $0.centerXAnchor.constraint(greaterThanOrEqualTo: self.centerXAnchor, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "CenterHorizontalAnchorToOtherViewGrater"
                 constraint.activate()
             case .equalOrless(let priority):
                 let constraint: NSLayoutConstraint = $0.centerXAnchor.constraint(lessThanOrEqualTo: self.centerXAnchor, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "CenterHorizontalAnchorToOtherViewLess"
                 constraint.activate()
             }
         })
@@ -707,14 +752,17 @@ public extension UIView {
             case .equal(let priority):
                 let constraint: NSLayoutConstraint = $0.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "CenterVerticalAnchorToOtherView"
                 constraint.activate()
             case .equalOrGrater(let priority):
                 let constraint: NSLayoutConstraint = $0.centerYAnchor.constraint(greaterThanOrEqualTo: self.centerYAnchor, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "CenterVerticalAnchorToOtherViewGrater"
                 constraint.activate()
             case .equalOrless(let priority):
                 let constraint: NSLayoutConstraint = $0.centerYAnchor.constraint(lessThanOrEqualTo: self.centerYAnchor, constant: constant)
                 constraint.priority = UILayoutPriority(rawValue: priority)
+                constraint.identifier = "CenterVerticalAnchorToOtherViewLess"
                 constraint.activate()
             }
         })
@@ -739,14 +787,17 @@ public extension UIView {
         case .equal(let priority):
             let constraint: NSLayoutConstraint = self.centerXAnchor.constraint(equalTo: superview.centerXAnchor, constant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "CenterHorizontalAnchorToSuperview"
             constraint.activate()
         case .equalOrGrater(let priority):
             let constraint: NSLayoutConstraint = self.centerXAnchor.constraint(greaterThanOrEqualTo: superview.centerXAnchor, constant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "CenterHorizontalAnchorToSuperviewGrater"
             constraint.activate()
         case .equalOrless(let priority):
             let constraint: NSLayoutConstraint = self.centerXAnchor.constraint(lessThanOrEqualTo: superview.centerXAnchor, constant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "CenterHorizontalAnchorToSuperviewLess"
             constraint.activate()
         }
         return self
@@ -784,14 +835,17 @@ public extension UIView {
         case .equal(let priority):
             let constraint: NSLayoutConstraint = self.centerYAnchor.constraint(equalTo: anchor, constant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "CenterVerticalAnchorToSuperview"
             constraint.activate()
         case .equalOrGrater(let priority):
             let constraint: NSLayoutConstraint = self.centerYAnchor.constraint(greaterThanOrEqualTo: anchor, constant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "CenterVerticalAnchorToSuperviewGrater"
             constraint.activate()
         case .equalOrless(let priority):
             let constraint: NSLayoutConstraint = self.centerYAnchor.constraint(lessThanOrEqualTo: anchor, constant: constant)
             constraint.priority = UILayoutPriority(rawValue: priority)
+            constraint.identifier = "CenterVerticalAnchorToSuperviewLess"
             constraint.activate()
         }
         return self
